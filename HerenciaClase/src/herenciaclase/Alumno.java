@@ -24,6 +24,12 @@ public class Alumno extends Persona{
         super.mostrarPersona();
         JOptionPane.showMessageDialog(null, "\nTitulo secundario: " + this.getTitulosec() + "\nCurso: " + this.getCurso());
     }
+    
+    public void modificarAlumno(){
+        super.modificarPersona();
+        titulosec=JOptionPane.showInputDialog("Posee titulo secundario?: ");
+        curso=JOptionPane.showInputDialog("Curso al que pertenece: ");
+    }
 
     public String getTitulosec() {
         return titulosec;

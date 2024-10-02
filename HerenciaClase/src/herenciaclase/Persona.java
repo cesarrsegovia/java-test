@@ -11,13 +11,6 @@ public class Persona {
     private String ciudad;
     //Date fnac;
     private String correo;
-
-    /*public Persona(int legajo, String nombreape, String ciudad, String correo) {
-        this.legajo = legajo;
-        this.nombreape = nombreape;
-        this.ciudad = ciudad;
-        this.correo = correo;
-    }*/
     
     Persona(){
         legajo=0;
@@ -37,6 +30,12 @@ public class Persona {
         JOptionPane.showMessageDialog(null, "\nLegajo: " + this.getLegajo() 
         + "\nNombre y apellido: " + this.getNombreape() + "\nCiudad: " + this.getCiudad()
         + "\nCorreo: " + this.getCorreo());
+    }
+    
+    public void modificarPersona(){
+        nombreape=JOptionPane.showInputDialog("Ingrese nombre y apellido:");
+        ciudad=JOptionPane.showInputDialog("Ingrese su ciudad:");
+        correo=JOptionPane.showInputDialog("Ingrese su correo");
     }
     
 
