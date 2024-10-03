@@ -47,4 +47,36 @@ public class Catalogo {
             }
         }
     }
+    
+    public void autosTresPuertas(){
+        Automovil auxa=null;
+        int cp=0;
+        for(int i=0;i<vecvehiculo.length;i++){
+            if(vecvehiculo[i] instanceof Automovil){
+                auxa=(Automovil)vecvehiculo[i];
+                if(auxa.getCantpuertas()==3){
+                    auxa.mostrarAutomovil();
+                }
+            }
+        }
+    }
+    
+    public void autoMasCaro(){
+        Automovil auxa=null;
+        Automovil aut=new Automovil();
+        aut.setPrecio(-999);
+        for(int i=0;i<vecvehiculo.length;i++){
+            if(vecvehiculo[i] instanceof Automovil){
+                auxa=(Automovil) vecvehiculo[i];
+                if(auxa.getPrecio()>aut.getPrecio()){
+                    aut=auxa;
+                }
+            }
+        }
+        aut.mostrarAutomovil();
+    }
+    
+    public void biciDecreXCambios(){
+        
+    }
 }

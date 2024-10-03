@@ -15,8 +15,8 @@ public class Guia3ejer1 {
         
         do{
             menu=JOptionPane.showInputDialog("""
-                                          1-Automovil mas caro
-                                          2-Autos con 3 puertas
+                                          1-Datos del Automovil mas caro
+                                          2-Datos de autos con 3 puertas
                                           3-Listado de bicicletas en forma decreciente segun cantidad de cambios
                                           4-Importe total de la empresa en concepto de autos
                                           5-Importe total de la empresa en concepto de bicicletas
@@ -29,8 +29,10 @@ public class Guia3ejer1 {
             
             switch(op){
                 case 1:
+                    c.autoMasCaro();
                     break;
                 case 2:
+                    c.autosTresPuertas();
                     break;
                 case 3:
                     break;
