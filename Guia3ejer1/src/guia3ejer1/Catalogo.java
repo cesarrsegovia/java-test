@@ -77,6 +77,18 @@ public class Catalogo {
     }
     
     public void biciDecreXCambios(){
-        
+        Bicicleta auxb=null;
+        Bicicleta b=new Bicicleta();
+        b.setCambios(0);
+        for(int i=0;i<vecvehiculo.length;i++){
+            for(int j=i+1;j<vecvehiculo.length;j++){
+                if(vecvehiculo[i] instanceof Bicicleta){
+                    auxb=(Bicicleta) vecvehiculo[i];
+                    if(auxb.getCambios()>b.getCambios()){
+                        
+                    }
+                }
+            }
+        }
     }
 }
