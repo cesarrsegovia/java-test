@@ -43,6 +43,7 @@ public class Guia3ejer1 {
                 case 6:
                     break;
                 case 7:
+                    c.busqModifAutomovil();
                     break;
                 case 8:
                     break;

@@ -95,12 +95,21 @@ public class Catalogo {
     public void busqModifAutomovil(){
         Automovil auxa=null;
         boolean ban=false;
-        int bus=0;
-        bus=Integer.parseInt(JOptionPane.showInputDialog("Ingrese denominacion del auto:"));
+        String bus="";
+        bus=JOptionPane.showInputDialog("Ingrese denominacion del auto:");
         for(int i=0;i<vecvehiculo.length;i++){
             if(vecvehiculo[i] instanceof Automovil){
                 auxa=(Automovil) vecvehiculo[i];
+                if(auxa.getDenominacion()==bus){
+                    auxa.modificarAutomovil();
+                    ban=true;
+                    JOptionPane.showMessageDialog(null, "Automovil modificado");
+                    auxa.mostrarAutomovil();
+                }
             }
+        }
+        if(ban=false){
+            JOptionPane.showMessageDialog(null, "Automovil no encontrado");
         }
     }
 }
