@@ -20,6 +20,11 @@ public class Automovil extends Vehiculo{
         super.mostrarVehiculo();
         JOptionPane.showMessageDialog(null, "Cantidad de puertas: " + this.getCantpuertas());
     }
+    
+    public void modificarAutomovil(){
+        super.modificarVehiculo();
+        cantpuertas=Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad de puertas:"));
+    }
 
     public int getCantpuertas() {
         return cantpuertas;

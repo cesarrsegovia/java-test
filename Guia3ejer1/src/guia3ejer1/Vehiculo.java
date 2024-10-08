@@ -28,6 +28,13 @@ public class Vehiculo {
         JOptionPane.showMessageDialog(null, "Denominacion: " + this.getDenominacion() + "\nMarca: " + this.getMarca()
         + "\nCantidad stock: " + this.getStock() + "\nPrecio: " + this.getPrecio());
     }
+    
+    public void modificarVehiculo(){
+        denominacion=JOptionPane.showInputDialog("Ingrese la denominacion del vehiculo:");
+        marca=JOptionPane.showInputDialog("Ingrese la marca:");
+        stock=Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad de stock:"));
+        precio=Float.parseFloat(JOptionPane.showInputDialog("Ingrese precio del vehiculo:"));
+    }                                                                                                                                                                          
 
     public String getDenominacion() {
         return denominacion;

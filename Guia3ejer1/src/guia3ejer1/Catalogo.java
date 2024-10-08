@@ -91,4 +91,16 @@ public class Catalogo {
             }
         }
     }
+    
+    public void busqModifAutomovil(){
+        Automovil auxa=null;
+        boolean ban=false;
+        int bus=0;
+        bus=Integer.parseInt(JOptionPane.showInputDialog("Ingrese denominacion del auto:"));
+        for(int i=0;i<vecvehiculo.length;i++){
+            if(vecvehiculo[i] instanceof Automovil){
+                auxa=(Automovil) vecvehiculo[i];
+            }
+        }
+    }
 }
