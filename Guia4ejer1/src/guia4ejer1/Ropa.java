@@ -13,7 +13,7 @@ public class Ropa extends Producto{
     
     public Ropa() {
         super();
-        this.tamanio = tamanio;
+        this.tamanio = "";
     }
     
     public void registrarRopa(int i){
