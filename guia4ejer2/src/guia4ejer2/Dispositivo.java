@@ -25,8 +25,12 @@ abstract public class Dispositivo {
     }
     
     public void registrarProducto(){
-        this.marca=JOptionPane.showInputDialog("Ingrese la marca:");
-        this.modelo=JOptionPane.showInputDialog("Ingrese el modelo:");
+        do{
+            this.marca=JOptionPane.showInputDialog("Ingrese la marca:");
+        }while(marca == null || marca.trim().isEmpty());
+        do{
+            this.modelo=JOptionPane.showInputDialog("Ingrese el modelo:");
+        }while(modelo == null || modelo.trim().isEmpty());
         this.precio_base=Float.parseFloat(JOptionPane.showInputDialog("Ingrese el precio base:"));
         cargador=new Cargador();
         cargador.registrarCargador();

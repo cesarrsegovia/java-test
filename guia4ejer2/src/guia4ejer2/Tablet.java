@@ -19,7 +19,9 @@ public class Tablet extends Dispositivo{
     
     public void registrarProducto(){
         super.registrarProducto();
-        this.conectividad=JOptionPane.showInputDialog("Ingrese tipo de conectividad (wifi/4g):");
+        do{
+            this.conectividad=JOptionPane.showInputDialog("Ingrese tipo de conectividad (wifi/4g):");
+        }while(!conectividad.equalsIgnoreCase("wifi") && !conectividad.equalsIgnoreCase("4g"));
     }
     
     public float precioFinal(){

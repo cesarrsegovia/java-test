@@ -18,12 +18,6 @@ public class Cargador {
         this.potencia_car=0;
     }
     
-    /*public static Cargador registrarCargador(){
-        String tipo_car=JOptionPane.showInputDialog("indique tipo de cargador:");
-        int potencia_car=Integer.parseInt(JOptionPane.showInputDialog("indique la potencia en watts:"));
-        return new Cargador(tipo_car,potencia_car);
-    }*/
-    
     public void registrarCargador(){
         do{
         tipo_car=JOptionPane.showInputDialog("indique tipo de cargador:");

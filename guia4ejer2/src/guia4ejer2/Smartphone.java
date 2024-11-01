@@ -25,9 +25,15 @@ public class Smartphone extends Dispositivo{
     
     public void registrarProducto(){
         super.registrarProducto();
-        this.almacenamiento=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad de almacenamiento (128/256/512)"));
-        this.camara_frontal=JOptionPane.showInputDialog("Tiene camara frontal?");
-        this.camara_to=JOptionPane.showInputDialog("Tiene camara teleobjetivo?");
+        do{
+            this.almacenamiento=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad de almacenamiento (128/256/512)"));
+        }while(almacenamiento != 128 && almacenamiento != 256 && almacenamiento != 512);
+        do{
+            this.camara_frontal=JOptionPane.showInputDialog("Tiene camara frontal?");
+        }while(!camara_frontal.equalsIgnoreCase("si") && !camara_frontal.equalsIgnoreCase("no"));
+        do{
+            this.camara_to=JOptionPane.showInputDialog("Tiene camara teleobjetivo?");
+        }while(!camara_to.equalsIgnoreCase("si") && !camara_to.equalsIgnoreCase("no"));
     }
     
     public float precioFinal(){
