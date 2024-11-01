@@ -28,7 +28,8 @@ abstract public class Dispositivo {
         this.marca=JOptionPane.showInputDialog("Ingrese la marca:");
         this.modelo=JOptionPane.showInputDialog("Ingrese el modelo:");
         this.precio_base=Float.parseFloat(JOptionPane.showInputDialog("Ingrese el precio base:"));
-        this.cargador = Cargador.registrarCargador();
+        cargador=new Cargador();
+        cargador.registrarCargador();
     }
     
     public String mostrarProducto(){
@@ -36,6 +37,8 @@ abstract public class Dispositivo {
         a+="\nModelo: " + this.modelo;
         a+="\nMarca: " + this.marca;
         a+="\nP. Base: " + this.precio_base;
+        a+="\nPotencia cargador: " + cargador.getPotencia_car();
+        a+="\nTipo cargador: " + cargador.getTipo_car();
         return a;
     }
     

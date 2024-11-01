@@ -30,6 +30,7 @@ public class Laptop extends Dispositivo{
         float precio=super.getPrecio_base();
         if(tamanio_pant.equalsIgnoreCase("mediana")) precio *= 1.10;
         if(tamanio_pant.equalsIgnoreCase("grande")) precio *= 1.20;
+        return precio;
     }
 
     public String getTamanio_pant() {

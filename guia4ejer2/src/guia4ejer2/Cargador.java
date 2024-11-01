@@ -18,15 +18,22 @@ public class Cargador {
         this.potencia_car=0;
     }
     
-    public static Cargador registrarCargador(){
+    /*public static Cargador registrarCargador(){
         String tipo_car=JOptionPane.showInputDialog("indique tipo de cargador:");
         int potencia_car=Integer.parseInt(JOptionPane.showInputDialog("indique la potencia en watts:"));
         return new Cargador(tipo_car,potencia_car);
+    }*/
+    
+    public void registrarCargador(){
+        do{
+        tipo_car=JOptionPane.showInputDialog("indique tipo de cargador:");
+        }while(!tipo_car.equalsIgnoreCase("rapido") && !tipo_car.equalsIgnoreCase("estandar"));
+        do{
+            potencia_car=Integer.parseInt(JOptionPane.showInputDialog("Ingrese potencia cargador(5/10/15/25/45/100"));
+        }while(potencia_car != 5 && potencia_car != 10 && potencia_car !=15 && potencia_car != 25 && potencia_car !=45 && potencia_car != 100);
     }
     
-    public void mostrarCargador(){
-        JOptionPane.showMessageDialog(null, "Tipo cargador: " + this.tipo_car + "\nPotencia: " + this.potencia_car + " W.");
-    }
+    
 
     public String getTipo_car() {
         return tipo_car;
