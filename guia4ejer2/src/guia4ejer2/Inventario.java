@@ -59,7 +59,51 @@ public class Inventario {
         for(int i=0;i<vecelectro.length;i++){
             if(vecelectro[i] instanceof Smartphone){
                 if(vecelectro[i].getPrecio_base()!=0){
-                    JOptionPane.showMessageDialog(null, vecelectro[i].mostrarProducto()+"\nprecio total: " + vecelectro[i].precioFinal());
+                    JOptionPane.showMessageDialog(null, vecelectro[i].mostrarProducto()+"\nPrecio total: " + vecelectro[i].precioFinal());
+                }
+            }
+        }
+    }
+    
+    public void listaLaptop(){
+        Dispositivo aux=null;
+        for(int i=0;i<vecelectro.length-1;i++){
+            for(int j=i+1;j<vecelectro.length;j++){
+                if(vecelectro[i] instanceof Laptop && vecelectro[j] instanceof Laptop){
+                    if(vecelectro[i].precioFinal()<vecelectro[j].precioFinal()){
+                        aux=vecelectro[i];
+                        vecelectro[i]=vecelectro[j];
+                        vecelectro[j]=aux;
+                    }
+                }
+            }
+        }
+        for(int i=0;i<vecelectro.length;i++){
+            if(vecelectro[i] instanceof Laptop){
+                if(vecelectro[i].getPrecio_base()!=0){
+                    JOptionPane.showMessageDialog(null, vecelectro[i].mostrarProducto()+"\nPrecio total: " + vecelectro[i].precioFinal());
+                }
+            }
+        }
+    }
+    
+    public void listaTablet(){
+        Dispositivo aux=null;
+        for(int i=0;i<vecelectro.length-1;i++){
+            for(int j=i+1;j<vecelectro.length;j++){
+                if(vecelectro[i] instanceof Tablet && vecelectro[j] instanceof Tablet){
+                    if(vecelectro[i].precioFinal()<vecelectro[j].precioFinal()){
+                        aux=vecelectro[i];
+                        vecelectro[i]=vecelectro[j];
+                        vecelectro[j]=aux;
+                    }
+                }
+            }
+        }
+        for(int i=0;i<vecelectro.length;i++){
+            if(vecelectro[i] instanceof Tablet){
+                if(vecelectro[i].getPrecio_base()!=0){
+                    JOptionPane.showMessageDialog(null, vecelectro[i].mostrarProducto()+"\nPrecio total: " + vecelectro[i].precioFinal());
                 }
             }
         }

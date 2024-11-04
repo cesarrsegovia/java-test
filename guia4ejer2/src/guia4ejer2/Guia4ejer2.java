@@ -29,6 +29,8 @@ public class Guia4ejer2 {
             switch(op){
                 case 1: invent.listaSmartphones();
                     break;
+                case 2: invent.listaLaptop(); break;
+                case 3: invent.listaTablet(); break;
             }
         }while(op!=12);
     }
