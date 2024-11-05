@@ -108,6 +108,72 @@ public class Inventario {
             }
         }
     }
+    
+    public void cantidadCamaras(){
+        int cf=0, ct=0;
+        for(int i=0; i<vecelectro.length;i++){
+            if(vecelectro[i] instanceof Smartphone){
+                Smartphone s=(Smartphone) vecelectro[i];
+                if(s.getCamara_frontal().equalsIgnoreCase("si")) cf++;
+                if(s.getCamara_to().equalsIgnoreCase("si")) ct++;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Smartphones con camara frontal: " + cf + "\nSmartphones con camara teleobjetivo " + ct);
+    }
+    
+    public void laptopPantallaGrandeBarata(){
+        Laptop lapeco=null;
+        float precioMinimo = Float.MAX_VALUE;
+        for(int i=0;i<vecelectro.length;i++){
+            if(vecelectro[i] instanceof Laptop){
+                Laptop aux=(Laptop) vecelectro[i];
+                if(aux.getTamanio_pant().equalsIgnoreCase("grande")){
+                    float precioActual=aux.precioFinal();
+                    if(precioActual<precioMinimo){
+                        precioMinimo=precioActual;
+                        lapeco=aux;
+                    }
+                }
+            }
+        }
+        if(lapeco!=null){
+            JOptionPane.showMessageDialog(null, "Laptop de menor precio con pantalla grande: " + lapeco.mostrarLaptop() + "\nPrecio final: " + lapeco.precioFinal());
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encontraron laptops con pantalla grande.");
+        }
+    }
+    
+    //6.Cantidad de laptops por cada tipo de memoria ram.
+    public void laptopXRam(){
+        int cantidades[]=new int[4];
+        for(int i=0;i<vecelectro.length;i++){
+            if(vecelectro[i] instanceof Laptop){
+                Laptop aux=(Laptop) vecelectro[i];
+                switch(aux.getRam()){
+                    case 4: cantidades[0]++; break;
+                    case 8: cantidades[1]++; break;
+                    case 16: cantidades[2]++; break;
+                    case 32: cantidades[3]++; break;
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Laptops por RAM:\n" + 
+                "4GB: " + cantidades[0] + "\n8GB: " + cantidades[1] + "\n16GB: " + cantidades[2] + "\n32GB: " + cantidades[3]);
+    }
+    
+    //7.Mostrar datos de todas las tablets con conectividad 4g. incluir datos del cargador.
+    public void tablets4g(){
+        String mensaje = "Tablets 4G:\n";
+        for(int i=0;i<vecelectro.length;i++){
+            if(vecelectro[i] instanceof Tablet){
+                Tablet tab=(Tablet) vecelectro[i];
+                if(tab.getConectividad().equalsIgnoreCase("4g")){
+                    mensaje += tab.mostrarTablet();
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
 
     public Dispositivo[] getVecelectro() {
         return vecelectro;

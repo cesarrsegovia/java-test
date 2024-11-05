@@ -27,10 +27,13 @@ public class Guia4ejer2 {
                                                             """));
             
             switch(op){
-                case 1: invent.listaSmartphones();
-                    break;
+                case 1: invent.listaSmartphones(); break;
                 case 2: invent.listaLaptop(); break;
                 case 3: invent.listaTablet(); break;
+                case 4: invent.cantidadCamaras(); break;
+                case 5: invent.laptopPantallaGrandeBarata(); break;
+                case 6: invent.laptopXRam(); break;
+                case 7: invent.tablets4g(); break;
             }
         }while(op!=12);
     }
