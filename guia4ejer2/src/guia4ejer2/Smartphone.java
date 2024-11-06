@@ -57,6 +57,19 @@ public class Smartphone extends Dispositivo{
         return mos;
     }
     
+    public void modificarSmart(){
+        super.modificarDispositivo();
+        do{
+            this.almacenamiento=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad de almacenamiento (128/256/512)"));
+        }while(almacenamiento != 128 && almacenamiento != 256 && almacenamiento != 512);
+        do{
+            this.camara_frontal=JOptionPane.showInputDialog("Tiene camara frontal?");
+        }while(!camara_frontal.equalsIgnoreCase("si") && !camara_frontal.equalsIgnoreCase("no"));
+        do{
+            this.camara_to=JOptionPane.showInputDialog("Tiene camara teleobjetivo?");
+        }while(!camara_to.equalsIgnoreCase("si") && !camara_to.equalsIgnoreCase("no"));
+    }
+    
 
     public int getAlmacenamiento() {
         return almacenamiento;

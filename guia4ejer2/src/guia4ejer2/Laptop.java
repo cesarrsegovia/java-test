@@ -26,7 +26,7 @@ public class Laptop extends Dispositivo{
             this.tamanio_pant=JOptionPane.showInputDialog("Ingresar tamaño de pantalla (pequeña/mediana/grande):");
         }while(!tamanio_pant.equalsIgnoreCase("pequeña") && !tamanio_pant.equalsIgnoreCase("mediana") && !tamanio_pant.equalsIgnoreCase("grande"));
         do{
-            this.ram=Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad de memoria RAM:"));
+            this.ram=Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad de memoria RAM: (4gb/8gb/16gb/32gb)"));
         }while(ram != 4 && ram != 8 && ram != 16 && ram != 32);
     }
     
@@ -49,6 +49,16 @@ public class Laptop extends Dispositivo{
         mos+="\nCantidad de memoria RAM: " + this.ram + " GB.";
         mos+="\nPrecio final: " + this.precioFinal();
         return mos;
+    }
+    
+    public void modificarLaptop(){
+        super.modificarDispositivo();
+        do{
+            this.tamanio_pant=JOptionPane.showInputDialog("Ingresar tamaño de pantalla (pequeña/mediana/grande):");
+        }while(!tamanio_pant.equalsIgnoreCase("pequeña") && !tamanio_pant.equalsIgnoreCase("mediana") && !tamanio_pant.equalsIgnoreCase("grande"));
+        do{
+            this.ram=Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad de memoria RAM:"));
+        }while(ram != 4 && ram != 8 && ram != 16 && ram != 32);
     }
 
     public String getTamanio_pant() {

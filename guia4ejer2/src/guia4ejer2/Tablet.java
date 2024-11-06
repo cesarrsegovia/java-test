@@ -37,6 +37,13 @@ public class Tablet extends Dispositivo{
         mos+="\nPrecio final: " + this.precioFinal();
         return mos;
     }
+    
+    public void modificarTablet(){
+        super.modificarDispositivo();
+        do{
+            this.conectividad=JOptionPane.showInputDialog("Ingrese tipo de conectividad (wifi/4g):");
+        }while(!conectividad.equalsIgnoreCase("wifi") && !conectividad.equalsIgnoreCase("4g"));
+    }
 
     public String getConectividad() {
         return conectividad;

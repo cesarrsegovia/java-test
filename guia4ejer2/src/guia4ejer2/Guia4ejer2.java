@@ -34,6 +34,10 @@ public class Guia4ejer2 {
                 case 5: invent.laptopPantallaGrandeBarata(); break;
                 case 6: invent.laptopXRam(); break;
                 case 7: invent.tablets4g(); break;
+                case 8: invent.modificarDispo(); break;
+                case 9: invent.eliminarDispo(); break;
+                case 10: invent.listadoDispCargaRapida(); break;
+                case 11: invent.cantidadDispPotCarga(); break;
             }
         }while(op!=12);
     }

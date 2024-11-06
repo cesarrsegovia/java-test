@@ -10,6 +10,14 @@ abstract public class Dispositivo {
     private float precio_base;
     private Cargador cargador;
 
+    public Cargador getCargador() {
+        return cargador;
+    }
+
+    public void setCargador(Cargador cargador) {
+        this.cargador = cargador;
+    }
+
     public Dispositivo(String marca, String modelo, float precio_base, Cargador cargador) {
         this.marca = marca;
         this.modelo = modelo;
@@ -44,6 +52,18 @@ abstract public class Dispositivo {
         a+="\nPotencia cargador: " + cargador.getPotencia_car();
         a+="\nTipo cargador: " + cargador.getTipo_car();
         return a;
+    }
+    
+    public void modificarDispositivo(){
+        do{
+            this.marca=JOptionPane.showInputDialog("Ingrese la marca:");
+        }while(marca == null || marca.trim().isEmpty());
+        do{
+            this.modelo=JOptionPane.showInputDialog("Ingrese el modelo:");
+        }while(modelo == null || modelo.trim().isEmpty());
+        this.precio_base=Float.parseFloat(JOptionPane.showInputDialog("Ingrese el precio base:"));
+        cargador=new Cargador();
+        cargador.registrarCargador();
     }
     
     abstract float precioFinal();

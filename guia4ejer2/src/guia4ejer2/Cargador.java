@@ -20,7 +20,7 @@ public class Cargador {
     
     public void registrarCargador(){
         do{
-        tipo_car=JOptionPane.showInputDialog("indique tipo de cargador:");
+        tipo_car=JOptionPane.showInputDialog("indique tipo de cargador: (rapido/estandar)");
         }while(!tipo_car.equalsIgnoreCase("rapido") && !tipo_car.equalsIgnoreCase("estandar"));
         do{
             potencia_car=Integer.parseInt(JOptionPane.showInputDialog("Ingrese potencia cargador(5/10/15/25/45/100"));
