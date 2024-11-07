@@ -23,19 +23,16 @@ public class Inventario {
                 case "smartphone":
                     vecelectro[i]=new Smartphone();
                     ((Smartphone)vecelectro[i]).registrarProducto();
-                    //cantidadDisp++;
                     JOptionPane.showMessageDialog(null, ((Smartphone)vecelectro[i]).mostrarSmart());
                     break;
                 case "laptop":
                     vecelectro[i]=new Laptop();
                     ((Laptop)vecelectro[i]).registrarProducto();
-                    //cantidadDisp++;
                     JOptionPane.showMessageDialog(null, ((Laptop)vecelectro[i]).mostrarLaptop());
                     break;
                 case "tablet":
                     vecelectro[i]=new Tablet();
                     ((Tablet)vecelectro[i]).registrarProducto();
-                    //cantidadDisp++;
                     JOptionPane.showMessageDialog(null, ((Tablet)vecelectro[i]).mostrarTablet());
                     break;
             }
@@ -258,14 +255,8 @@ public class Inventario {
                 if(vecelectro[i].getCargador().getTipo_car().equalsIgnoreCase("rapido")){
                     resultado += vecelectro[i].getMarca() + " " +
                             vecelectro[i].getModelo() + " - Precio: $" + vecelectro[i].precioFinal() + "\n";
-                    //resultado += vecelectro[i].mostrarProducto() + "\n";
-                    //ban=true;
                 }
-                //if(ban){
-                    //JOptionPane.showMessageDialog(null, resultado, "Listado con caragador rapido", JOptionPane.INFORMATION_MESSAGE);
-                //}else{
-                    //JOptionPane.showMessageDialog(null, "No se encontraron dispositivos con cargador rapido", "Resultado", JOptionPane.WARNING_MESSAGE);
-                //}
+                
             }
             JOptionPane.showMessageDialog(null, resultado);
         }
