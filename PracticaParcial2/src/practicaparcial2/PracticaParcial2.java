@@ -23,6 +23,7 @@ public class PracticaParcial2 {
                 case 1: correo.listadoSobresPrimerSem(); break;
                 case 2: correo.listadoDestinosPeso(); break;
                 case 3: correo.eliminarSobreSimple(); break;
+                case 4: correo.bonificacionAniv(); break;
             }
         }while(op!=5);
     }

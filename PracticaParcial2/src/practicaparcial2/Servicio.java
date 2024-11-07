@@ -25,7 +25,9 @@ public class Servicio {
                     case "sobre":
                         vecorreo[i] = new Sobre();
                         ((Sobre)vecorreo[i]).registrarProducto(i);
+                        if (vecorreo == null || vecorreo.length == 0) {
                         JOptionPane.showMessageDialog(null,((Sobre)vecorreo[i]).mostrarSobre());
+                        }
                         break;
                     case "encomienda":
                         vecorreo[i] = new Encomienda();
@@ -49,14 +51,15 @@ public class Servicio {
         String resultado="Sobre recibidos en el primer semestre:\n";
         
         for(int i=0;i<vecorreo.length;i++){
-            if(vecorreo[i] instanceof Sobre){
+            if(vecorreo[i] != null && vecorreo[i] instanceof Sobre){
                 Transporte transp=((Sobre)vecorreo[i]).getTransp();
+                if(transp != null){
                 Date fechaRecepcion=transp.getFecha_rec();
-                
                 if(fechaRecepcion.compareTo(primerDiaSemestre) >= 0 && fechaRecepcion.compareTo(ultimoDiaSemestre) <= 0){
-                    resultado += "Codigo: " + vecorreo[i].getCodigo();
+                    resultado += "\nCodigo: " + vecorreo[i].getCodigo();
                     resultado += "\nFecha: " + formato.format(fechaRecepcion);
                     resultado += "\nImporte a pagar: " + ((Sobre) vecorreo[i]).precioFinal() + "\n";
+                }
                 }
             }
         }
@@ -84,30 +87,51 @@ public class Servicio {
     
     //3.eliminar todos los sobres enviados con el servicio "simple"
     public void eliminarSobreSimple(){
-        int contador=0;
-        if (vecorreo == null || vecorreo.length == 0) {
-            JOptionPane.showMessageDialog(null, "No hay productos registrados en el sistema.");
-            return;
-        }
+        boolean ban=false;
         for(int i=0;i<vecorreo.length;i++){
-            //contar cuantos sobres no son de servicio simple
-            if(!(vecorreo[i] instanceof Sobre) || !((Sobre)vecorreo[i]).getServicio().equalsIgnoreCase("simple")){
-                contador++;
+            if(vecorreo[i] instanceof Sobre && ((Sobre)vecorreo[i]).getServicio().equalsIgnoreCase("simple")){
+                ban=true;
+                ((Sobre) vecorreo[i]).setCodigo(0);
+                ((Sobre) vecorreo[i]).setDescrip("");
+                ((Sobre) vecorreo[i]).setCiudad_ori("");
+                ((Sobre) vecorreo[i]).setCiudad_des("");
+                ((Sobre) vecorreo[i]).setEmisor("");
+                ((Sobre) vecorreo[i]).setReceptor("");
+                ((Sobre) vecorreo[i]).setServicio("");
+                ((Sobre) vecorreo[i]).setTransp(null);
             }
         }
-        //creo nuevo vector para guardar los sobres restantes
-        Producto[] nuevoVec=new Producto[contador];
-        int index=0;
-        //lleno nuevo vector con los sobres que no son "simples"
-        for(int i=0;i<vecorreo.length;i++){
-            if(!(vecorreo[i] instanceof Sobre) || !((Sobre)vecorreo[i]).getServicio().equalsIgnoreCase("simple")){
-                nuevoVec=vecorreo;
-                index++;
-            } 
+        if (ban) {
+            JOptionPane.showMessageDialog(null, "Todos los sobres de servicio 'simple' han sido eliminados.");
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay sobres de servicio 'simple' para eliminar.");
         }
-        //reemplazo el viejo vector con el nuevo
-        vecorreo=nuevoVec;
-        JOptionPane.showMessageDialog(null, "Todos los sobres de servicio 'simple' se eliminaron.");
+    }
+    
+    //4.mes aniversario, bonificacion de 10% sobre el precio final a aquellos paquetes mayores a 2000. Emitir listado de datos de los paquetes beneficiados.
+    public void bonificacionAniv(){
+        String resultado="Enconmiendas con bonificacion por aniversario:\n";
+        boolean beneficio=false;
+        for(int i=0;i<vecorreo.length;i++){
+            if(vecorreo[i] instanceof Encomienda){
+                Encomienda enco=(Encomienda)vecorreo[i];
+                
+                if(enco.getMonto_aseg()>2000){
+                    float precioOriginal=enco.precioFinal();
+                    float nuevoPrecio=(float) (precioOriginal*0.90);
+                    
+                    resultado+="\nCodigo: " + enco.getCodigo();
+                    resultado+="\nMonto asegurado: " + enco.getMonto_aseg();
+                    resultado+="\nImporte origial: " + precioOriginal + " con el descuento: " + nuevoPrecio;
+                    beneficio=true;
+                }
+            }
+        }
+        if (!beneficio) {
+        resultado += "No hay encomiendas con monto asegurado mayor a 2000 en el mes actual.";
+    }
+
+        JOptionPane.showMessageDialog(null, resultado);
     }
 
     public Producto[] getVecorreo() {
