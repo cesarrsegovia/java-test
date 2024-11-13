@@ -50,7 +50,7 @@ public class Sistema {
     
     public void busqModificacion(){
         String nom=JOptionPane.showInputDialog("Ingrese el nombre y apellido que desea buscar");
-        
+        aDSASD
     }
 
     public Alumno[] getVecsistema() {
