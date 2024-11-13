@@ -48,9 +48,31 @@ public class Sistema {
         JOptionPane.showMessageDialog(null, resultado);
     }
     
-    public void busqModificacion(){
+    public void busqModificacion() throws ParseException{
         String nom=JOptionPane.showInputDialog("Ingrese el nombre y apellido que desea buscar");
-        aDSASD
+        boolean ban=false;
+        int nuevasis=0;
+        String tps="";
+        for(int i=0;i<vecsistema.length;i++){
+            if(vecsistema[i].getNombreape().equalsIgnoreCase(nom)){
+                ban=true;
+                if(vecsistema[i] instanceof Presencial){
+                    Presencial modif = ((Presencial) vecsistema[i]);
+                    nuevasis=Integer.parseInt(JOptionPane.showInputDialog("Ingrese nuevo registro de asistencia:"));
+                    modif.setRegis_asis(nuevasis);
+                    JOptionPane.showMessageDialog(null, "Asistencia modificada." + modif.mostrar());
+                }
+                if(vecsistema[i] instanceof Online){
+                    Online modifOn = ((Online)vecsistema[i]);
+                    tps=JOptionPane.showInputDialog("Ingrese si tiene trabajos completos:");
+                    modifOn.setEntrega_comp(tps);
+                    JOptionPane.showMessageDialog(null, "Asistencia modificada." + modifOn.mostrar());
+                }
+            }
+        }
+        if(!ban){
+            JOptionPane.showMessageDialog(null, "No se encontraron alumnos con ese nombre.");
+        }
     }
 
     public Alumno[] getVecsistema() {

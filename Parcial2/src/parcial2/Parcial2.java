@@ -19,7 +19,8 @@ public class Parcial2 {
                                            """));
             switch(op){
                 case 1: sistema.listadoAlumnosModalidad(); break;
-                case 2: break;
+                case 2: sistema.busqModificacion(); break;
+                case 3: JOptionPane.showMessageDialog(null, "Saliendo.."); break;
             }
         }while(op!=3);
     }
