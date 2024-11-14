@@ -60,13 +60,13 @@ public class Sistema {
                     Presencial modif = ((Presencial) vecsistema[i]);
                     nuevasis=Integer.parseInt(JOptionPane.showInputDialog("Ingrese nuevo registro de asistencia:"));
                     modif.setRegis_asis(nuevasis);
-                    JOptionPane.showMessageDialog(null, "Asistencia modificada." + modif.mostrar());
+                    JOptionPane.showMessageDialog(null, "Asistencia modificada:\n" + modif.mostrar());
                 }
                 if(vecsistema[i] instanceof Online){
                     Online modifOn = ((Online)vecsistema[i]);
                     tps=JOptionPane.showInputDialog("Ingrese si tiene trabajos completos:");
                     modifOn.setEntrega_comp(tps);
-                    JOptionPane.showMessageDialog(null, "Asistencia modificada." + modifOn.mostrar());
+                    JOptionPane.showMessageDialog(null, "Asistencia modificada:\n" + modifOn.mostrar());
                 }
             }
         }
